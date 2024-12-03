@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
-    private const val BASE_URL = "https://drive.google.com/file/d/"
+    private const val BASE_URL = ""
 
     private val httpClient = OkHttpClient()
 

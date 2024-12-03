@@ -1,6 +1,7 @@
 package ru.evgeniykim.mockevents.ui.viewmodel
 
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.evgeniykim.mockevents.network.api.ApiHelperImpl
 import ru.evgeniykim.mockevents.network.api.MainContract
@@ -23,6 +24,8 @@ class MainViewModel: BaseViewModel<MainContract.Event, MainContract.State, MainC
     private fun getData() {
         viewModelScope.launch {
             setState { copy(fetchingData = MainContract.FetchingDataState.Loading) }
+            delay(2000)
+            println("Method called")
             try {
                 apiHelper.getEvents().collect {
                     if (it.events.isNotEmpty()) {
